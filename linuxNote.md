@@ -46,3 +46,23 @@ sudo mkfs.ntfs /dev/sda1    # NTFS
 
 
 
+# 安装软件
+
+## Node
+
+### 清除旧版本
+
+``` shell
+rm -rf ~/.nvm
+rm -rf /usr/local/bin/node /usr/local/bin/npm /usr/local/lib/node_modules
+```
+
+### 重新安装nvm
+
+``` shell
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
+source ~/.nvm/nvm.sh
+nvm install v18.20.3
+nvm use v18.20.3
+```
+
