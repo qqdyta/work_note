@@ -89,7 +89,7 @@ rm -rf /usr/local/bin/node /usr/local/bin/npm /usr/local/lib/node_modules
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
 source ~/.nvm/nvm.sh
 nvm install v20
-nvm use v18.20.3
+nvm use v20.15.0
 ```
 
 ### 设置不同环境下的node环境
@@ -101,6 +101,8 @@ which node
 ```
 
 /home/seeed/.nvm/versions/node/v14.21.3/bin/node
+
+/home/seeed/.nvm/versions/node/v20.15.0/bin/node
 
 ### sudo环境下配置
 
@@ -117,6 +119,16 @@ export PATH=$PATH:/usr/local/bin
 ### 软连接
 
 ``` shell
-sudo ln -s /home/seeed/.nvm/versions/node/v14.21.3/bin/node /usr/bin/node
+sudo ln -s /home/seeed/.nvm/versions/node/v20.15.0/bin/node /usr/bin/node
+```
+
+
+
+# 注册服务
+
+### 路径
+
+``` shell
+/etc/systemd/system/
 ```
 
