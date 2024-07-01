@@ -88,7 +88,7 @@ rm -rf /usr/local/bin/node /usr/local/bin/npm /usr/local/lib/node_modules
 ``` shell
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
 source ~/.nvm/nvm.sh
-nvm install v18.20.3
+nvm install v20
 nvm use v18.20.3
 ```
 
