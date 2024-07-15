@@ -1,0 +1,7 @@
+# 快捷键
+- Ctrl + B : 转到声明
+- Alt + Enter : 自动修复建议
+- 自动重命名 : Shift + F6
+- Ctrl + / : 单行注释
+- Ctrl + Shift + / : 块注释
+- Ctrl + W : 扩展选区
