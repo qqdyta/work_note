@@ -89,7 +89,7 @@ rm -rf /usr/local/bin/node /usr/local/bin/npm /usr/local/lib/node_modules
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
 source ~/.nvm/nvm.sh
 nvm install v20
-nvm use v20.15.0
+nvm use v20
 ```
 
 ### 设置不同环境下的node环境
@@ -210,3 +210,31 @@ ps -o pid,ppid,cmd -p 204198
 - `cmd`：这是一个关键字，表示启动进程的命令。使用 `-o` 选项指定时，它会在输出中显示该列。
 - `-p 204198`：这个选项用于指定要显示的进程ID。`-p` 后跟的数字是进程ID。在本例中，`-p 204198` 表示只显示进程ID为204198的进程信息。
 
+
+
+# SSH
+
+## 免密登录设置
+
+将WIN10的id_rsa.pub复制到linux中的`` ~/.ssh/``
+
+`` mv .ssh/id_rsa.pub .ssh/authorized_keys``
+
+```text
+chmod 600 .ssh/authorized_keys
+chmod 700 .ssh
+```
+
+```text
+sudo vim /etc/ssh/sshd_config
+```
+
+```text
+RSAAuthentication yes 
+PubkeyAuthentication yes 
+AuthorizedKeysFile .ssh/authorized_keys
+```
+
+```text
+sudo service sshd restart
+```

@@ -24,3 +24,15 @@ app.use(ElementPlus)
 &nbsp;
 ```
 
+
+
+# VUE3 script setup
+
+### 使用事件实例
+
+```javascript
+import { defineProps, getCurrentInstance } from 'vue'
+const { proxy } = getCurrentInstance()
+proxy.$emitter.emit('updateAllProcessData');
+```
+
