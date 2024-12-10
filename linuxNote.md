@@ -238,3 +238,16 @@ AuthorizedKeysFile .ssh/authorized_keys
 ```text
 sudo service sshd restart
 ```
+
+# GZ文件解压
+
+```bash
+gunzip filename.gz
+```
+
+## tar.gz
+
+``` bash
+tar -zxvf filename.tar.gz
+```
+

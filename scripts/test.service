@@ -1,0 +1,14 @@
+[Unit]
+Description=Node.js auto.js service
+After=network.target
+
+[Service]
+User=recomputer
+WorkingDirectory=/home/recomputer/
+ExecStart=/usr/bin/node /home/recomputer/auto.js
+Restart=always
+StandardOutput=journal
+TimeoutSec=0
+
+[Install]
+WantedBy=multi-user.target
