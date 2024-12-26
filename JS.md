@@ -77,3 +77,57 @@
 - **`null`** 是开发者显式赋值的值，表示“空引用”或“不存在的对象”。
 
 理解这两者的区别有助于编写更清晰、避免潜在错误的代码。
+
+
+
+## JS中导出方法的区别
+
+在Node.js中，`module.exports`和`exports`都是用来导出模块的。它们之间的主要区别在于如何使用以及底层的工作机制。
+
+### 1. `module.exports = FixtureManager`
+
+当你直接设置`module.exports`为某个值（比如一个类、对象或函数）时，你是在定义这个模块对外提供的唯一接口。这意味着其他文件通过`require`导入该模块时，得到的就是你指定的那个值。例如：
+
+```
+1// fixtureManager.js
+2class FixtureManager {
+3    // 类的内容
+4}
+5
+6module.exports = FixtureManager;
+7
+8// 在另一个文件中
+9const FixtureManager = require('./fixtureManager');
+```
+
+这里，`FixtureManager`类被直接作为模块的默认输出。
+
+### 2. `exports.FixtureManager = FixtureManager`
+
+而当你使用`exports`添加属性时，实际上是在扩展`module.exports`的对象。这允许你在同一个模块中导出多个不同的实体。例如：
+
+```
+1// fixtureManager.js
+2class FixtureManager {
+3    // 类的内容
+4}
+5
+6exports.FixtureManager = FixtureManager;  // 这里等价于 module.exports.FixtureManager = FixtureManager
+7
+8// 可以同时导出更多东西
+9exports.someFunction = function() {
+10    console.log("Hello, world!");
+11};
+12
+13// 在另一个文件中
+14const { FixtureManager, someFunction } = require('./fixtureManager');
+```
+
+这种方式下，`require`返回的是一个包含所有已定义属性的对象。
+
+### 总结
+
+- 使用`module.exports = ...`可以替换整个导出对象，使得导入时只能获得单个特定的实体。
+- 使用`exports.<property> = ...`则是在原始的`module.exports`对象上添加新的属性，适合于需要从同一模块导出多种资源的情况。
+
+选择哪种方式取决于你的具体需求：如果你只需要暴露一个主功能或者类，那么直接赋值给`module.exports`可能更简洁；如果需要提供多个相关的工具函数或类，则更适合用`exports`来逐个添加。
