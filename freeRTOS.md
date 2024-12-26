@@ -6,7 +6,150 @@
 vTaskDelay(50 / portTICK_PERIOD_MS)
 ```
 
+## 占位符
 
+1. **`%d`** 或 **`%i`**
+
+   - **作用**: 用于输出十进制整数。
+
+   - 示例
+
+     :
+
+     ```
+     1int num = 123;
+     2printf("The number is %d\n", num);  // 输出: The number is 123
+     ```
+
+2. **`%u`**
+
+   - **作用**: 用于输出无符号十进制整数。
+
+   - 示例
+
+     :
+
+     ```
+     1unsigned int unum = 123;
+     2printf("The unsigned number is %u\n", unum);  // 输出: The unsigned number is 123
+     ```
+
+3. **`%f`**
+
+   - **作用**: 用于输出浮点数。
+
+   - 示例
+
+     :
+
+     ```
+     1float fnum = 123.456;
+     2printf("The float number is %f\n", fnum);  // 输出: The float number is 123.456000
+     ```
+
+4. **`%e`** 或 **`%E`**
+
+   - **作用**: 用于输出科学记数法表示的浮点数。
+
+   - 示例
+
+     :
+
+     ```
+     1double dnum = 123456789.0;
+     2printf("The scientific notation is %e\n", dnum);  // 输出: The scientific notation is 1.234568e+08
+     ```
+
+5. **`%g`** 或 **`%G`**
+
+   - **作用**: 用于输出浮点数，根据数值大小自动选择 `%f` 或 `%e` 格式。
+
+   - 示例
+
+     :
+
+     ```
+     1double gnum = 123456789.0;
+     2printf("The general format is %g\n", gnum);  // 输出: The general format is 1.23457e+08
+     ```
+
+6. **`%c`**
+
+   - **作用**: 用于输出单个字符。
+
+   - 示例
+
+     :
+
+     ```
+     1char ch = 'A';
+     2printf("The character is %c\n", ch);  // 输出: The character is A
+     ```
+
+7. **`%s`**
+
+   - **作用**: 用于输出字符串。
+
+   - 示例
+
+     :
+
+     ```
+     1const char* str = "Hello, World!";
+     2printf("The string is %s\n", str);  // 输出: The string is Hello, World!
+     ```
+
+8. **`%p`**
+
+   - **作用**: 用于输出指针地址。
+
+   - 示例
+
+     :
+
+     ```
+     1int* ptr = &num;
+     2printf("The pointer address is %p\n", (void*)ptr);  // 输出: The pointer address is 0x7ffee4bff5ac
+     ```
+
+9. **`%x`** 或 **`%X`**
+
+   - **作用**: 用于输出十六进制整数（小写或大写）。
+
+   - 示例
+
+     :
+
+     ```
+     1int hexnum = 123;
+     2printf("The hexadecimal number is %x\n", hexnum);  // 输出: The hexadecimal number is 7b
+     3printf("The hexadecimal number is %X\n", hexnum);  // 输出: The hexadecimal number is 7B
+     ```
+
+10. **`%o`**
+
+    - **作用**: 用于输出八进制整数。
+
+    - 示例
+
+      :
+
+      ```
+      1int octnum = 123;
+      2printf("The octal number is %o\n", octnum);  // 输出: The octal number is 173
+      ```
+
+11. **`%%`**
+
+    - **作用**: 用于输出百分号本身。
+
+    - 示例
+
+      :
+
+      ```
+      1printf("This is a percent sign: %%\n");  // 输出: This is a percent sign: %
+      ```
 
 # GPIO 设置
 
